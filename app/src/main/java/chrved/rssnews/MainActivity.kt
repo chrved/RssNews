@@ -3,10 +3,11 @@ package chrved.rssnews
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,8 +20,8 @@ class MainActivity : ComponentActivity() {
             RssNewsTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    modifier = Modifier.fillMaxWidth(),
+                    color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("Android")
                 }
@@ -31,7 +32,16 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    Button(onClick = { /*TODO*/ }) {
+        Text(text = "ButtonClick")
+        Text(text = "Hello $name!")
+        Icon(
+            Icons.Filled.Favorite,
+            contentDescription = "Localized description",
+            modifier = Modifier.size(ButtonDefaults.IconSize)
+        )
+    }
+
 }
 
 @Preview(showBackground = true)
